@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Community forum
+    url: https://cognitum.one/community
+    about: Ask questions, share builds, discuss with other users
+  - name: Email support
+    url: mailto:hello@cognitum.one
+    about: Enterprise / sales / partnership inquiries

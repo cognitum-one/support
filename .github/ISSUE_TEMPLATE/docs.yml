@@ -1,0 +1,19 @@
+name: Documentation issue
+description: Report a doc error, unclear section, or missing info
+title: "[DOCS] "
+labels: ["documentation"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page or file
+      placeholder: "docs/getting-started.md"
+    validations:
+      required: true
+
+  - type: textarea
+    id: issue
+    attributes:
+      label: What's wrong or missing?
+    validations:
+      required: true

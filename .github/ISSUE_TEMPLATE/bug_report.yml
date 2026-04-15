@@ -1,0 +1,78 @@
+name: Bug report
+description: Report a firmware, hardware, or software bug
+title: "[BUG] "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please fill out the sections below so we can reproduce and fix it.
+
+  - type: input
+    id: firmware-version
+    attributes:
+      label: Firmware version
+      description: Shown in the status page (e.g. v0.10.11.5)
+      placeholder: "v0.10.11.5"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: hardware
+    attributes:
+      label: Hardware
+      options:
+        - Cognitum Seed (Pi Zero 2 W)
+        - Cognitum V0 Hub (Pi 5)
+        - Cognitum Desktop (Windows)
+        - Cognitum Desktop (macOS)
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: host-os
+    attributes:
+      label: Host OS
+      description: The computer the Seed is plugged into
+      options:
+        - Windows 11
+        - Windows 10
+        - macOS (Apple Silicon)
+        - macOS (Intel)
+        - Linux
+        - Other / not applicable
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What happened? What did you expect?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / console output
+      description: Paste any relevant logs
+      render: shell
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Confirmation
+      options:
+        - label: I searched existing issues first
+          required: true
+        - label: I'm running the latest firmware
+          required: false
