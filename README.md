@@ -1,6 +1,8 @@
 # Cognitum Support
 
-Community home for **Cognitum** users. This is the public repo — source code lives in private repos; here you'll find releases, documentation, and a place to report issues.
+Community home for **Cognitum** users. Source code lives in private repos; here you'll find releases, documentation, and a place to report issues.
+
+Website: [cognitum.one](https://cognitum.one) · Order: [cognitum.one/order](https://cognitum.one/order) · Twitter: [@Cognitum](https://twitter.com/Cognitum) · LinkedIn: [Cognitum](https://linkedin.com/company/cognitum)
 
 ## Downloads
 
@@ -21,7 +23,7 @@ gunzip -c cognitum-seed-vX.Y.Z.img.gz | sudo dd of=/dev/rdiskN bs=4m
 
 Or use [Raspberry Pi Imager](https://www.raspberrypi.com/software/) with a custom image.
 
-**Upgrade an existing seed:**
+**Upgrade an existing seed (v0.8.1+):**
 
 ```bash
 curl -sLO https://github.com/cognitum-one/support/releases/latest/download/upgrade-seed.sh
@@ -48,7 +50,7 @@ See [Getting Started Guide](docs/getting-started.md) for details.
 - **Feature request?** [Suggest a feature](https://github.com/cognitum-one/support/issues/new?template=feature_request.yml)
 - **Documentation typo?** [Report a doc issue](https://github.com/cognitum-one/support/issues/new?template=docs.yml)
 
-Before opening, please search [existing issues](https://github.com/cognitum-one/support/issues?q=is%3Aissue) — your question may already be answered.
+Before opening, please search [existing issues](https://github.com/cognitum-one/support/issues?q=is%3Aissue) first.
 
 ## Documentation
 
@@ -57,10 +59,13 @@ Before opening, please search [existing issues](https://github.com/cognitum-one/
 - [Troubleshooting](docs/troubleshooting.md)
 - [FAQ](docs/faq.md)
 
-## Community
+## Learn more
 
-- **Forum:** [cognitum.one/community](https://cognitum.one/community)
-- **Email:** hello@cognitum.one
+- [Seed product deck](https://cognitum.one/seed)
+- [V0 Appliance deck](https://cognitum.one/v0)
+- [Technical deck](https://cognitum.one/deck/technical)
+- [Security deck](https://cognitum.one/deck/security)
+- [Privacy policy](https://cognitum.one/privacy)
 
 ## License
 

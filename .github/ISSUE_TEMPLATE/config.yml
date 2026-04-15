@@ -1,8 +1,11 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Community forum
-    url: https://cognitum.one/community
-    about: Ask questions, share builds, discuss with other users
-  - name: Email support
-    url: mailto:hello@cognitum.one
-    about: Enterprise / sales / partnership inquiries
+  - name: Cognitum website
+    url: https://cognitum.one
+    about: Product info, order a Seed, technical decks
+  - name: Twitter / X
+    url: https://twitter.com/Cognitum
+    about: Follow for announcements and updates
+  - name: LinkedIn
+    url: https://linkedin.com/company/cognitum
+    about: Company page
