@@ -1,7 +1,8 @@
 name: Bug report
 description: Report a firmware, hardware, or software bug
 title: "[BUG] "
-labels: ["bug", "triage"]
+labels: ["bug", "triage", "kind/bug"]
+projects: ["cognitum-one/8"]
 body:
   - type: markdown
     attributes:
