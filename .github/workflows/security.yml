@@ -1,0 +1,50 @@
+name: security
+
+# Self-hosted secret + dependency scan (gitleaks full-history + OSV-Scanner).
+# Self-contained (no cross-repo reusable workflow) so it runs under any org
+# Actions policy. Org allowlist: cognitum-one/.github/gitleaks.toml. See ADR-092.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  secrets:
+    name: secret scan (gitleaks)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Run gitleaks (full history)
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/cognitum-one/.github/main/gitleaks.toml -o .gitleaks.org.toml || true
+          curl -fsSL "https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz" | tar -xzf - gitleaks
+          CFG=""
+          [ -f .gitleaks.toml ] && CFG="--config .gitleaks.toml"
+          [ -z "$CFG" ] && [ -f .gitleaks.org.toml ] && CFG="--config .gitleaks.org.toml"
+          ./gitleaks detect --source . $CFG --redact --exit-code 1
+
+  deps:
+    name: dependency scan (OSV)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run OSV-Scanner
+        run: |
+          curl -fsSL "https://github.com/google/osv-scanner/releases/download/v2.2.4/osv-scanner_linux_amd64" -o osv-scanner
+          chmod +x osv-scanner
+          set +e
+          ./osv-scanner --recursive .
+          code=$?
+          set -e
+          # exit 128 = no packages found -> pass; 1 = vulns -> fail
+          if [ "$code" = "128" ]; then echo "no supported manifests found; skipping"; exit 0; fi
+          exit "$code"
