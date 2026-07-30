@@ -225,6 +225,14 @@ cog "uses ruview" is how it interprets the payload — for the feature packet
 
 The node is cog‑agnostic — capability is decided by which cog you deploy and where.
 
+> **Retired: the `presence` cog.** Older docs and cached store pages referenced a
+> cog with id `presence`. It never consumed ESP32 CSI (it read the Seed's onboard
+> sensors) and always reported `present:false` on real hardware, so it has been
+> removed from the store; current firmware rejects installing it by id. Use
+> **`presence-field`** instead: install it, set its data source to `esp32-udp`,
+> stop/start it (see Known gaps below), then run its calibration with the room
+> empty (~120 s) before trusting its output.
+
 ## Known gaps
 
 - **Changing a cog's data source does not restart the cog.** Until this is fixed
